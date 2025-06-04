@@ -24,11 +24,6 @@ export class TodoComponent {
       this.newTodo = '';
     }
   }
-
-  toggle(todo: Todo) {
-    todo.completed = !todo.completed;
-  }
-
   remove(index: number) {
     this.todos.splice(index, 1);
   }
