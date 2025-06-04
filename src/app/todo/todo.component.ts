@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
 
 interface Todo {
   title: string;
@@ -10,7 +9,7 @@ interface Todo {
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [FormsModule, NgFor],
+  imports: [FormsModule],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.scss'
 })
