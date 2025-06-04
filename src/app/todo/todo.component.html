@@ -7,7 +7,7 @@
   <ul class="space-y-2">
     @for (todo of todos; let i = $index; track $index) {
     <li [class.completed]="todo.completed" class="flex items-center gap-2">
-      <input type="checkbox" [(ngModel)]="todo.completed" (change)="toggle(todo)" />
+      <input type="checkbox" [(ngModel)]="todo.completed" />
       <span class="flex-1">{{ todo.title }}</span>
       <button type="button" (click)="remove(i)" class="text-red-500 hover:underline">Remove</button>
     </li>
