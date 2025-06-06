@@ -7,6 +7,7 @@ export interface Product {
   image: string;
   images: string[];
   description: string;
+  stock: number;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -22,7 +23,8 @@ export class ProductService {
         'https://placehold.co/600x400?text=Prod+1+-+Image+2',
         'https://placehold.co/600x400?text=Prod+1+-+Image+3',
       ],
-      description: 'Description for product 1.'
+      description: 'Description for product 1.',
+      stock: 5
     },
     {
       id: 2,
@@ -34,7 +36,8 @@ export class ProductService {
         'https://placehold.co/600x400?text=Prod+2+-+Image+2',
         'https://placehold.co/600x400?text=Prod+2+-+Image+3',
       ],
-      description: 'Description for product 2.'
+      description: 'Description for product 2.',
+      stock: 8
     },
     {
       id: 3,
@@ -46,7 +49,8 @@ export class ProductService {
         'https://placehold.co/600x400?text=Prod+3+-+Image+2',
         'https://placehold.co/600x400?text=Prod+3+-+Image+3',
       ],
-      description: 'Description for product 3.'
+      description: 'Description for product 3.',
+      stock: 3
     },
     {
       id: 4,
@@ -58,7 +62,8 @@ export class ProductService {
         'https://placehold.co/600x400?text=Prod+4+-+Image+2',
         'https://placehold.co/600x400?text=Prod+4+-+Image+3',
       ],
-      description: 'Description for product 4.'
+      description: 'Description for product 4.',
+      stock: 10
     }
   ];
 

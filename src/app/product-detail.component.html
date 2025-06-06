@@ -14,8 +14,9 @@
   <div>
     <h1 class="text-2xl font-bold mb-2">{{ product.title }}</h1>
     <p class="mb-4">{{ product.description }}</p>
-    <p class="font-bold mb-4">{{ product.price | currency }}</p>
-    <button class="bg-blue-600 text-white px-4 py-2 rounded">Add to Cart</button>
+    <p class="font-bold mb-2">{{ product.price | currency }}</p>
+    <p class="text-sm mb-4">In stock: {{ product.stock }}</p>
+    <button class="bg-blue-600 text-white px-4 py-2 rounded" (click)="addToCart()">Add to Cart</button>
   </div>
 </div>
 <ng-template #notFound>
