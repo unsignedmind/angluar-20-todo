@@ -7,6 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,html,scss}\"",
     "serve:ssr:angular-20-todo-app": "node dist/angular-20-todo-app/server/server.mjs"
   },
   "private": true,
@@ -40,6 +42,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.5.4",
+    "prettier": "^3.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "~5.8.3"
   }
