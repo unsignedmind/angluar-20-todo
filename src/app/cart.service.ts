@@ -15,6 +15,17 @@ export interface CartStorage {
 export const CART_STORAGE = new InjectionToken<CartStorage>('CartStorage');
 
 @Injectable({ providedIn: 'root' })
+export class MemoryCartStorage implements CartStorage {
+  private items: CartItem[] = [];
+  load(): CartItem[] {
+    return this.items;
+  }
+  save(items: CartItem[]): void {
+    this.items = items;
+  }
+}
+
+@Injectable({ providedIn: 'root' })
 export class LocalStorageCartStorage implements CartStorage {
   private key = 'cart';
   load(): CartItem[] {
@@ -31,6 +42,10 @@ export class CartService {
   private storage = inject(CART_STORAGE);
   private itemsSubject = new BehaviorSubject<CartItem[]>(this.storage.load());
   items$ = this.itemsSubject.asObservable();
+
+  get items() {
+    return this.itemsSubject.value;
+  }
 
   private persist(items: CartItem[]) {
     this.itemsSubject.next(items);
