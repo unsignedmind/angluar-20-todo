@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductService, Product } from './product.service';
-import { ProductCardComponent } from './product-card.component';
+import { ProductService, Product } from '../../services/product.service';
+import { ProductCardComponent } from '../../components/product-card/product-card.component';
 
 @Component({
   selector: 'app-home',

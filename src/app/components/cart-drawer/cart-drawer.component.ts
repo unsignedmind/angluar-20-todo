@@ -1,7 +1,8 @@
 import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { CartService, CartItem } from './cart.service';
+import { CartService } from '../../services/cart/cart.service';
+import { CartItem } from '../../services/cart/cart.models';
 
 @Component({
   selector: 'app-cart-drawer',

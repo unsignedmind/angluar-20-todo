@@ -2,8 +2,8 @@ import { provideServerRendering, withRoutes } from '@angular/ssr';
 import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
 import { appConfig } from './app.config';
 import { serverRoutes } from './app.routes.server';
-import { CART_STORAGE } from './cart.service';
-import { MemoryCartStorage } from './cart.service';
+import { CART_STORAGE } from './services/cart/cart.models';
+import { MemoryCartStorage } from './services/cart/memory-cart-storage.service';
 
 const serverConfig: ApplicationConfig = {
   providers: [

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Product } from './product.service';
+import { Product } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-card',
