@@ -1,8 +1,14 @@
 <header class="bg-gray-800 text-white flex items-center justify-between p-4">
   <a routerLink="/" class="text-xl font-bold">My Shop</a>
-  <button class="md:hidden text-2xl" aria-label="Menu">&#9776;</button>
-  <nav class="hidden md:flex gap-4">
-    <a routerLink="/" class="hover:underline">Home</a>
-    <a routerLink="/cart" class="hover:underline">Cart</a>
-  </nav>
+  <div class="flex items-center gap-4">
+    <a routerLink="/cart" class="md:hidden text-2xl" aria-label="Cart">🛒</a>
+    <button class="md:hidden text-2xl" aria-label="Menu">&#9776;</button>
+    <nav class="hidden md:flex gap-4 items-center">
+      <a routerLink="/" class="hover:underline">Home</a>
+      <a routerLink="/cart" class="hover:underline flex items-center gap-1">
+        <span>Cart</span>
+        <span aria-hidden="true">🛒</span>
+      </a>
+    </nav>
+  </div>
 </header>

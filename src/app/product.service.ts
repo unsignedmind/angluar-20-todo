@@ -5,18 +5,68 @@ export interface Product {
   title: string;
   price: number;
   image: string;
+  images: string[];
+  description: string;
 }
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
   private products: Product[] = [
-    { id: 1, title: 'Sample Product 1', price: 9.99, image: 'https://via.placeholder.com/300x200' },
-    { id: 2, title: 'Sample Product 2', price: 14.99, image: 'https://via.placeholder.com/300x200' },
-    { id: 3, title: 'Sample Product 3', price: 19.99, image: 'https://via.placeholder.com/300x200' },
-    { id: 4, title: 'Sample Product 4', price: 29.99, image: 'https://via.placeholder.com/300x200' }
+    {
+      id: 1,
+      title: 'Sample Product 1',
+      price: 9.99,
+      image: 'https://via.placeholder.com/300x200?text=Prod+1',
+      images: [
+        'https://via.placeholder.com/600x400?text=Prod+1+-+Image+1',
+        'https://via.placeholder.com/600x400?text=Prod+1+-+Image+2',
+        'https://via.placeholder.com/600x400?text=Prod+1+-+Image+3',
+      ],
+      description: 'Description for product 1.'
+    },
+    {
+      id: 2,
+      title: 'Sample Product 2',
+      price: 14.99,
+      image: 'https://via.placeholder.com/300x200?text=Prod+2',
+      images: [
+        'https://via.placeholder.com/600x400?text=Prod+2+-+Image+1',
+        'https://via.placeholder.com/600x400?text=Prod+2+-+Image+2',
+        'https://via.placeholder.com/600x400?text=Prod+2+-+Image+3',
+      ],
+      description: 'Description for product 2.'
+    },
+    {
+      id: 3,
+      title: 'Sample Product 3',
+      price: 19.99,
+      image: 'https://via.placeholder.com/300x200?text=Prod+3',
+      images: [
+        'https://via.placeholder.com/600x400?text=Prod+3+-+Image+1',
+        'https://via.placeholder.com/600x400?text=Prod+3+-+Image+2',
+        'https://via.placeholder.com/600x400?text=Prod+3+-+Image+3',
+      ],
+      description: 'Description for product 3.'
+    },
+    {
+      id: 4,
+      title: 'Sample Product 4',
+      price: 29.99,
+      image: 'https://via.placeholder.com/300x200?text=Prod+4',
+      images: [
+        'https://via.placeholder.com/600x400?text=Prod+4+-+Image+1',
+        'https://via.placeholder.com/600x400?text=Prod+4+-+Image+2',
+        'https://via.placeholder.com/600x400?text=Prod+4+-+Image+3',
+      ],
+      description: 'Description for product 4.'
+    }
   ];
 
   getProducts() {
     return this.products;
+  }
+
+  getProduct(id: number) {
+    return this.products.find(p => p.id === id);
   }
 }
