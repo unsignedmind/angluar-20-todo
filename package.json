@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular-20-todo-app": "node dist/angular-20-todo-app/server/server.mjs"
+    "serve:ssr:angular-20-todo-app": "node dist/angular-20-todo-app/server/server.mjs",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -27,12 +28,18 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^20.0.0",
+    "@angular-eslint/builder": "^19.7.1",
+    "@angular-eslint/eslint-plugin": "^19.7.1",
+    "@angular-eslint/schematics": "^19.7.1",
+    "@angular-eslint/template-parser": "^19.7.1",
     "@angular/cli": "^20.0.0",
     "@angular/compiler-cli": "^20.0.0",
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
+    "angular-eslint": "^19.7.1",
     "autoprefixer": "^10.4.21",
+    "eslint": "^9.28.0",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
