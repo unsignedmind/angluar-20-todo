@@ -1,0 +1,29 @@
+<h1 class="text-xl font-bold mb-4">Checkout</h1>
+
+<div *ngIf="(items$ | async) as items">
+  <div *ngIf="items.length; else empty">
+    <div class="mb-4" *ngFor="let item of items">
+      <p class="font-semibold">{{ item.product.title }} x {{ item.quantity }}</p>
+      <p class="text-sm">{{ item.product.price | currency }}</p>
+    </div>
+    <p class="font-bold mb-6">Total: {{ total | currency }}</p>
+    <form (ngSubmit)="submit()" class="space-y-4" #form="ngForm">
+      <div>
+        <label class="block mb-1">Name</label>
+        <input name="name" [(ngModel)]="name" required class="border p-2 w-full" />
+      </div>
+      <div>
+        <label class="block mb-1">Address</label>
+        <input name="address" [(ngModel)]="address" required class="border p-2 w-full" />
+      </div>
+      <div>
+        <label class="block mb-1">Email</label>
+        <input name="email" [(ngModel)]="email" type="email" required class="border p-2 w-full" />
+      </div>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded" [disabled]="form.invalid">Pay Now</button>
+    </form>
+  </div>
+  <ng-template #empty>
+    <p>Your cart is empty.</p>
+  </ng-template>
+</div>

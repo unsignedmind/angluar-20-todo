@@ -1,0 +1,7 @@
+<section class="bg-blue-100 text-center p-8 rounded-lg mb-8">
+  <h1 class="text-3xl font-bold mb-2">Welcome to our Shop</h1>
+  <p>Discover great products below</p>
+</section>
+<div class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+  <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+</div>

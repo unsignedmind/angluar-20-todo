@@ -1,0 +1,6 @@
+<div class="border rounded p-4 flex flex-col h-full">
+  <img [src]="product.image" [alt]="product.title" class="rounded mb-2" />
+  <h3 class="font-semibold mb-2">{{ product.title }}</h3>
+  <p class="mt-auto font-bold">{{ product.price | currency }}</p>
+  <a [routerLink]="['/product', product.id]" class="text-blue-500 hover:underline mt-2">View</a>
+</div>
