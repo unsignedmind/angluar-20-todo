@@ -21,5 +21,9 @@
       </div>
       <p *ngIf="!items.length">Your cart is empty.</p>
     </div>
+    <div *ngIf="(items$ | async)?.length" class="mt-4">
+      <p class="font-bold mb-2">Total: {{ total | currency }}</p>
+      <button class="bg-blue-600 text-white px-4 py-2 w-full rounded" (click)="proceedToCheckout()">Checkout</button>
+    </div>
   </div>
 </div>
