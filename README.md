@@ -19,6 +19,7 @@ Install dependencies and start the dev server with:
 
 ```bash
 npm install
+npx husky install
 npm start
 ```
 
@@ -97,5 +98,6 @@ The `package.json` exposes a couple of handy commands:
 
 Contributions are welcome! Please adhere to the project's coding style (two
 spaces for indentation and single quotes in TypeScript) and include relevant
-tests when adding new features. Feel free to open issues or submit pull
+tests when adding new features. After cloning the repository, run `npx husky install`
+to set up Git hooks. Feel free to open issues or submit pull
 requests for improvements or bug fixes.
