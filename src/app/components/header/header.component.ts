@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { map } from 'rxjs';
-import { CartService } from './cart.service';
-import { CartDrawerComponent } from './cart-drawer.component';
+import { CartService } from '../../services/cart/cart.service';
+import { CartDrawerComponent } from '../cart-drawer/cart-drawer.component';
 
 @Component({
   selector: 'app-header',

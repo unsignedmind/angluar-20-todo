@@ -1,0 +1,5 @@
+<div class="fixed bottom-4 right-4 space-y-2">
+  <div *ngFor="let toast of toasts$ | async" class="bg-gray-800 text-white px-4 py-2 rounded shadow">
+    {{ toast.message }}
+  </div>
+</div>

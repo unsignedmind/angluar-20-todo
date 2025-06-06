@@ -1,41 +1,7 @@
-import { Injectable, InjectionToken, inject } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import type { Product } from './product.service';
-
-export interface CartItem {
-  product: Product;
-  quantity: number;
-}
-
-export interface CartStorage {
-  load(): CartItem[];
-  save(items: CartItem[]): void;
-}
-
-export const CART_STORAGE = new InjectionToken<CartStorage>('CartStorage');
-
-@Injectable({ providedIn: 'root' })
-export class MemoryCartStorage implements CartStorage {
-  private items: CartItem[] = [];
-  load(): CartItem[] {
-    return this.items;
-  }
-  save(items: CartItem[]): void {
-    this.items = items;
-  }
-}
-
-@Injectable({ providedIn: 'root' })
-export class LocalStorageCartStorage implements CartStorage {
-  private key = 'cart';
-  load(): CartItem[] {
-    const data = localStorage.getItem(this.key);
-    return data ? JSON.parse(data) : [];
-  }
-  save(items: CartItem[]): void {
-    localStorage.setItem(this.key, JSON.stringify(items));
-  }
-}
+import type { Product } from '../product.service';
+import { CART_STORAGE, CartItem } from './cart.models';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
