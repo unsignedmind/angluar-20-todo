@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:angular-20-todo-app": "node dist/angular-20-todo-app/server/server.mjs",
+    "start:backend": "node backend/server.js",
     "lint": "ng lint",
     "prepare": "husky && husky install",
     "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
@@ -25,6 +26,7 @@
     "@angular/router": "^20.0.0",
     "@angular/ssr": "^20.0.0",
     "express": "^4.18.2",
+    "cors": "^2.8.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

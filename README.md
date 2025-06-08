@@ -22,6 +22,7 @@ npm install
 # initialize git hooks
 npx husky install
 npm start
+npm run start:backend # starts the product API
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
@@ -78,6 +79,24 @@ ng e2e
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Product API
+
+This repository includes a tiny Node.js backend under the `backend/` folder. The Angular app now relies on this API for product and cart data. Start it with:
+
+```bash
+npm run start:backend
+```
+
+The API exposes the following endpoints:
+
+- `GET /api/products` – list products
+- `GET /api/products/:id` – get a single product
+- `GET /api/cart` – view the current cart
+- `POST /api/cart` – add a product to the cart (`{ productId, quantity }`)
+- `PUT /api/cart/:id` – update quantity
+- `DELETE /api/cart/:id` – remove from cart
+- `POST /api/checkout` – finalize an order
 
 ## Additional Resources
 

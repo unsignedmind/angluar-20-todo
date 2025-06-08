@@ -28,8 +28,9 @@ export class CheckoutComponent {
   }
 
   submit() {
-    this.cart.clear();
-    this.toast.show('Order placed!');
-    this.router.navigate(['/confirmation']);
+    this.cart.checkout(this.name, this.address).subscribe(() => {
+      this.toast.show('Order placed!');
+      this.router.navigate(['/confirmation']);
+    });
   }
 }
