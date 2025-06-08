@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:angular-20-todo-app": "node dist/angular-20-todo-app/server/server.mjs",
+    "lint": "ng lint",
     "prepare": "husky && husky install"
   },
   "private": true,
@@ -28,6 +29,10 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^20.0.0",
+    "@angular-eslint/builder": "^20.0.0",
+    "@angular-eslint/eslint-plugin": "^20.0.0",
+    "@angular-eslint/schematics": "^20.0.0",
+    "@angular-eslint/template-parser": "^20.0.0",
     "@angular/cli": "^20.0.0",
     "@angular/compiler-cli": "^20.0.0",
     "@commitlint/cli": "^19.8.1",
@@ -36,6 +41,7 @@
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
     "autoprefixer": "^10.4.21",
+    "eslint": "^9.28.0",
     "husky": "^8.0.0",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
