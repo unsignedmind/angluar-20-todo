@@ -1,4 +1,3 @@
-import { InjectionToken } from '@angular/core';
 import type { Product } from '../product.service';
 
 export interface CartItem {
@@ -6,9 +5,3 @@ export interface CartItem {
   quantity: number;
 }
 
-export interface CartStorage {
-  load(): CartItem[];
-  save(items: CartItem[]): void;
-}
-
-export const CART_STORAGE = new InjectionToken<CartStorage>('CartStorage');

@@ -23,8 +23,10 @@ export class ProductDetailComponent {
     private toast: ToastService
   ) {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.product = this.productService.getProduct(id);
-    this.currentImage = this.product?.images[0] || this.product?.image;
+    this.productService.getProduct(id).subscribe(p => {
+      this.product = p;
+      this.currentImage = p.images[0] || p.image;
+    });
   }
 
   addToCart() {

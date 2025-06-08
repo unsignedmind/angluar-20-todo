@@ -1,49 +1,63 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 import type { Product } from '../product.service';
-import { CART_STORAGE, CartItem } from './cart.models';
+import { CartItem } from './cart.models';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
-  private storage = inject(CART_STORAGE);
-  private itemsSubject = new BehaviorSubject<CartItem[]>(this.storage.load());
+  private http = inject(HttpClient);
+  private itemsSubject = new BehaviorSubject<CartItem[]>([]);
   items$ = this.itemsSubject.asObservable();
+
+  constructor() {
+    this.load();
+  }
 
   get items() {
     return this.itemsSubject.value;
   }
 
-  private persist(items: CartItem[]) {
+  private setCart(items: CartItem[]) {
     this.itemsSubject.next(items);
-    this.storage.save(items);
+  }
+
+  private load() {
+    this.http.get<CartItem[]>('/api/cart').subscribe(items => this.setCart(items));
   }
 
   add(product: Product, quantity = 1) {
-    const items = [...this.itemsSubject.value];
-    const item = items.find(i => i.product.id === product.id);
-    if (item) {
-      item.quantity = Math.min(item.quantity + quantity, product.stock);
-    } else {
-      items.push({ product, quantity: Math.min(quantity, product.stock) });
-    }
-    this.persist(items);
+    this.http
+      .post<CartItem[]>('/api/cart', {
+        productId: product.id,
+        quantity
+      })
+      .subscribe(items => this.setCart(items));
   }
 
   updateQuantity(productId: number, quantity: number) {
-    const items = [...this.itemsSubject.value];
-    const item = items.find(i => i.product.id === productId);
-    if (!item) return;
-    quantity = Math.min(Math.max(quantity, 1), item.product.stock);
-    item.quantity = quantity;
-    this.persist(items);
+    this.http
+      .put<CartItem[]>(`/api/cart/${productId}`, { quantity })
+      .subscribe(items => this.setCart(items));
   }
 
   remove(productId: number) {
-    const items = this.itemsSubject.value.filter(i => i.product.id !== productId);
-    this.persist(items);
+    this.http
+      .delete<CartItem[]>(`/api/cart/${productId}`)
+      .subscribe(items => this.setCart(items));
   }
 
   clear() {
-    this.persist([]);
+    // server cart is cleared after checkout, reload to sync state
+    this.setCart([]);
+  }
+
+  checkout(name: string, address: string) {
+    return this.http
+      .post<{ message: string; order: unknown }>(
+        '/api/checkout',
+        { name, address }
+      )
+      .pipe(tap(() => this.setCart([])));
   }
 }
