@@ -9,7 +9,9 @@
     "test": "ng test",
     "serve:ssr:angular-20-todo-app": "node dist/angular-20-todo-app/server/server.mjs",
     "lint": "ng lint",
-    "prepare": "husky && husky install"
+    "prepare": "husky && husky install",
+    "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,html,scss}\""
   },
   "private": true,
   "dependencies": {
@@ -51,6 +53,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.5.4",
     "tailwindcss": "^3.4.17",
-    "typescript": "~5.8.3"
+    "typescript": "~5.8.3",
+    "prettier": "^3.2.5"
   }
 }
