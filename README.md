@@ -19,6 +19,8 @@ Install dependencies and start the dev server with:
 
 ```bash
 npm install
+# initialize git hooks
+npx husky install
 npm start
 ```
 
@@ -99,3 +101,4 @@ Contributions are welcome! Please adhere to the project's coding style (two
 spaces for indentation and single quotes in TypeScript) and include relevant
 tests when adding new features. Feel free to open issues or submit pull
 requests for improvements or bug fixes.
+After cloning, run `npx husky install` to enable git hooks.
