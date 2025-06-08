@@ -11,9 +11,9 @@ import { ProductCardComponent } from '../../components/product-card/product-card
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  products: Product[];
+  products: Product[] = [];
 
   constructor(private productService: ProductService) {
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe(p => (this.products = p));
   }
 }

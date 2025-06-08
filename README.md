@@ -22,6 +22,7 @@ npm install
 # initialize git hooks
 npx husky install
 npm start
+npm run start:backend # starts the product API
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
@@ -79,6 +80,28 @@ ng e2e
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
+## Product API
+
+This repository includes a tiny Node.js backend under the `backend/` folder. The Angular app relies on this API for product and cart data.
+
+Start the backend in a separate terminal with:
+
+```bash
+npm run start:backend
+
+The development server is configured to proxy `/api` requests to `http://localhost:3000`, so running `npm start` in another terminal will serve the frontend and forward API calls automatically.
+```
+
+The API exposes the following endpoints:
+
+- `GET /api/products` – list products
+- `GET /api/products/:id` – get a single product
+- `GET /api/cart` – view the current cart
+- `POST /api/cart` – add a product to the cart (`{ productId, quantity }`)
+- `PUT /api/cart/:id` – update quantity
+- `DELETE /api/cart/:id` – remove from cart
+- `POST /api/checkout` – finalize an order
+
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
@@ -87,13 +110,13 @@ For more information on using the Angular CLI, including detailed command refere
 
 The `package.json` exposes a couple of handy commands:
 
-| Script | Description |
-| ------ | ----------- |
-| `npm start` | Alias for `ng serve`. Starts the development server. |
-| `npm run build` | Builds the browser and server bundles. |
-| `npm test` | Runs unit tests with Karma. |
-| `npm run watch` | Rebuilds on file changes. |
-| `npm run serve:ssr:angular-20-todo-app` | Starts the built SSR server. |
+| Script                                  | Description                                          |
+| --------------------------------------- | ---------------------------------------------------- |
+| `npm start`                             | Alias for `ng serve`. Starts the development server. |
+| `npm run build`                         | Builds the browser and server bundles.               |
+| `npm test`                              | Runs unit tests with Karma.                          |
+| `npm run watch`                         | Rebuilds on file changes.                            |
+| `npm run serve:ssr:angular-20-todo-app` | Starts the built SSR server.                         |
 
 ## Contributing
 
